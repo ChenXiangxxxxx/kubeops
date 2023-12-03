@@ -32,7 +32,7 @@ func Init() {
 	GORM.DB().SetMaxOpenConns(config.MaxOpenConns)
 	GORM.DB().SetConnMaxLifetime(config.MaxLifeTime)
 	isInit = true
-	GORM.AutoMigrate(model.Event{})
+	GORM.AutoMigrate(model.Event{}, model.Chart{})
 	logger.Info("连接数据库成功")
 }
 

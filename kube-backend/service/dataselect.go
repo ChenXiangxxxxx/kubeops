@@ -3,6 +3,7 @@ package service
 import (
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
+	nwv1 "k8s.io/api/networking/v1"
 	"sort"
 	"strings"
 	"time"
@@ -118,5 +119,95 @@ func (s serviceCell) GetCreation() time.Time {
 }
 
 func (s serviceCell) GetName() string {
+	return s.Name
+}
+
+type ingressCell nwv1.Ingress
+
+func (i ingressCell) GetCreation() time.Time {
+	return i.CreationTimestamp.Time
+}
+
+func (i ingressCell) GetName() string {
+	return i.Name
+}
+
+type configMapCell corev1.ConfigMap
+
+func (c configMapCell) GetCreation() time.Time {
+	return c.CreationTimestamp.Time
+}
+
+func (c configMapCell) GetName() string {
+	return c.Name
+}
+
+type secretCell corev1.Secret
+
+func (s secretCell) GetCreation() time.Time {
+	return s.CreationTimestamp.Time
+}
+
+func (s secretCell) GetName() string {
+	return s.Name
+}
+
+type pvcCell corev1.PersistentVolumeClaim
+
+func (p pvcCell) GetCreation() time.Time {
+	return p.CreationTimestamp.Time
+}
+
+func (p pvcCell) GetName() string {
+	return p.Name
+}
+
+type nodeCell corev1.Node
+
+func (n nodeCell) GetCreation() time.Time {
+	return n.CreationTimestamp.Time
+}
+
+func (n nodeCell) GetName() string {
+	return n.Name
+}
+
+type namespaceCell corev1.Namespace
+
+func (n namespaceCell) GetCreation() time.Time {
+	return n.CreationTimestamp.Time
+}
+
+func (n namespaceCell) GetName() string {
+	return n.Name
+}
+
+type pvCell corev1.PersistentVolume
+
+func (p pvCell) GetCreation() time.Time {
+	return p.CreationTimestamp.Time
+}
+
+func (p pvCell) GetName() string {
+	return p.Name
+}
+
+type daemonSetCell appsv1.DaemonSet
+
+func (d daemonSetCell) GetCreation() time.Time {
+	return d.CreationTimestamp.Time
+}
+
+func (d daemonSetCell) GetName() string {
+	return d.Name
+}
+
+type statefulSetCell appsv1.StatefulSet
+
+func (s statefulSetCell) GetCreation() time.Time {
+	return s.CreationTimestamp.Time
+}
+
+func (s statefulSetCell) GetName() string {
 	return s.Name
 }

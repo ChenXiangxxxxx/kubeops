@@ -3,6 +3,7 @@ package config
 import "time"
 
 const (
+	WsAddr         = "0.0.0.0:8081"
 	ListenAddr     = "0.0.0.0:9090"
 	Kubeconfigs    = `{"TST-1":"D:\\gocode\\cmdb\\kube-backend\\kubeconfig","TST-2":"D:\\gocode\\cmdb\\kube-backend\\kubeconfig"}`
 	PodLogTailLine = 5000 //查看容器日志时显示的tail行数
@@ -20,7 +21,7 @@ const (
 	MaxOpenConns = 100              //最大连接数
 	MaxLifeTime  = 30 * time.Second //最大生存时间
 	//helm上传路径
-	UploadPath = "D:\\custom\\project\\123\\实战\\"
+	UploadPath = "D:\\gocode\\"
 	//账号密码
 	AdminUser = "admin"
 	AdminPwd  = "123456"
